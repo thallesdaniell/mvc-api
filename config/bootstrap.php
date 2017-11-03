@@ -31,12 +31,6 @@ if (defined('ENV'))
             break;
 
         default:
-            exit('O ambiente do aplicativo não está configurado corretamente.');
+            exit(json_encode(['status' => 503, 'message' => 'O ambiente do aplicativo não está configurado corretamente.']));
     }
 }
-
-// import loader ...  
-#if (!require_once('seed/loader.php'))
-#{
-#    die("Loader não encontrado! Abortado.");
-#}
