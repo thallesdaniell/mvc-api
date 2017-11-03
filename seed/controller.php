@@ -16,11 +16,9 @@ use Seed\Nucleos;
 use Seed\Router;
 
 class Controller extends Nucleos {
-  protected $request;
-
+  
   function __construct () {
     parent::__construct();
-    $this->request = new Router();
     $this->auth();
   }
   
