@@ -22,10 +22,10 @@ class Welcome extends Controller {
   }
 
   public function index_get () {
-       return Router::response(200, ['message' => "GET Id-{$id} Nome-{$nome} Idade-{$idade}"]);
+       return Router::response(200, ['message' => "welcomet index"]);
   }
 
-  public function welcome_get () {
+  public function teste_get () {
     return Router::response(200, ['message' => "Controller Welcome Método Welcome"]);
   }
 
