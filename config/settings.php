@@ -46,6 +46,7 @@ $config['cache-max-age'] = 0;#3600;
  * -------------------------------------------------------- */
 $config['database'] = [
   'development' => [
+    'driver' => 'mysql',
     'host' => 'localhost',
     'port' => '3306',
     'user' => 'root',
@@ -54,6 +55,7 @@ $config['database'] = [
     'charset' => 'utf8'
   ],
   'production' => [
+    'driver' => 'mysql',
     'host' => 'localhost',
     'port' => '3306',
     'user' => 'root',
