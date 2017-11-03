@@ -303,7 +303,7 @@ class Router {
   /**
    * Standardise the response.
    */
-  public function response ( $code, $response = [], $extra = [] ) {
+  public static function response ( $code, $response = [], $extra = [] ) {
     $_variable_names = [
       'return_status' => 'status',
       'return_data'   => 'data'
