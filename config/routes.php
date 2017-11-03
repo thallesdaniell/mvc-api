@@ -17,4 +17,5 @@
 
 $routes = []; // PLEASE DO NOT REMOVE THIS LINE 
 
-#$routes['welcome'] = 'index/welcome/$1/$2/$3';
+$routes['welcome'] = 'index/welcome/$1/$2/$3';
+$routes['apelido'] = 'index/index/$1/$2/$3';
