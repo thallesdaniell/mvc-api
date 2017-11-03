@@ -214,7 +214,7 @@ class Router {
     }
 
     // define the class name and namespace
-    $class = 'Controllers\\' . $this->resource;
+    $class = 'App\\Controllers\\' . $this->resource;
 
     try {
       // get real possible method name (verb+method)
