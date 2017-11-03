@@ -1,0 +1,19 @@
+{
+    "name": "vendor/api",
+    "description": "Micro Framework API.",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "thalles",
+            "email": "thallesdaniell@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Seed\\": "seed",
+            "Controllers\\": "controllers"
+        }
+    },
+    "require": {}
+}
