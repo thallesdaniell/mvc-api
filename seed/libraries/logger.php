@@ -14,15 +14,17 @@ defined('ENV') or die('O acesso direto ao script não é permitido!');
 
 use Seed\Libraries\RMySQL;
 
-class Logger {
+class Logger extends \Seed\Database{
   private $_db;
   private $_data = [];
   private $_config;
   private $_table = 'log_usage';
 
   function __construct ( $cfg = [] ) {
+      parent::__construct();
     $this->_config = $cfg;
     $this->_db = new RMySQL($this->_config);
+    
   } // __construct
 
   public function endpoint ( $str = '' ) {
@@ -64,7 +66,8 @@ class Logger {
     $res = false;
 
     try {
-      $res = $this->_db->insert($this->_table, $this->_data);
+     $res = $this->insert($this->_table, $this->_data);
+      #$res = $this->_db->insert($this->_table, $this->_data);
     } catch (\Exception $e) {
       // result is already set to false ... 
     }
