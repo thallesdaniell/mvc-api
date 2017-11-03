@@ -158,7 +158,7 @@ class Router {
     });
 
     // makes it an assossiative array
-    $this->args = array_merge( $this->args, @array_combine($keys, $values) );
+    $this->args = @array_merge( $this->args, @array_combine($keys, $values) );
 
     // do the call ... 
     return $this->execute();
@@ -284,7 +284,7 @@ class Router {
         }
       }
 
-      // var_dump($match); die;
+      var_dump($match); die;
 
       if ( $match !== false ) {
         // try again with special route ...
