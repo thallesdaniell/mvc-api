@@ -284,7 +284,7 @@ class Router {
         }
       }
 
-      var_dump($match); die;
+      //var_dump($match); die;
 
       if ( $match !== false ) {
         // try again with special route ...
