@@ -21,15 +21,9 @@ class Index extends Controller {
   }
 
   public function index_get() {
-    return $this->request->response(200, ['message' => "GET Id-{$id} Nome-{$nome} Idade-{$time}"]);
+    return $this->request->response(200, ['message' => "Controller Index, Método Index - MICRO FRAMEWORK API"]);
   }
 
-  public function welcome_get ($id,$nome,$idade) {
-   #   $sample = new \Models\Sample();
-   # $time =  $sample->getSomething();
-   # $v = $this->config['version'];
-   # return $this->request->response(200, ['message' => "GET Id-{$id} Nome-{$nome} Idade-{$time}"]);
-  }
 
 
 } // class
