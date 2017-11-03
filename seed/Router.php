@@ -132,7 +132,7 @@ class Router {
       else {
         // define which verb is been used
         // whenever there's no verb set, take index as default 
-        $this->verb = $this->camelfy($arg[0]);
+        $this->verb = $this->camelfy($arg[0],true);
       }
     } else {
       $this->verb = 'index';
@@ -221,8 +221,15 @@ class Router {
       $func = "{$this->verb}_" . strtolower($this->method);
 
       // get reflection information 
-      $refm  = new \ReflectionMethod($class, $func);
-
+      #var_dump($class, $func);
+           
+     
+        if (class_exists($class) AND method_exists($class,$func)) {
+            $refm  = new \ReflectionMethod($class, $func);
+        }else{
+            return $this->response(Http::_BAD_REQUEST,['error'=>'001']);
+        }
+      
       $call_args = [];
       $call_args_required_count = 0;
       
@@ -245,7 +252,7 @@ class Router {
         if ($this->config['log'] === true) {
           $this->logger->responseCode(Http::_BAD_REQUEST)->log();
         }
-        return $this->response(Http::_BAD_REQUEST,['erro'=>'Argumento(s) Inválido(s)']); // bad request
+        return $this->response(Http::_BAD_REQUEST,['error'=>'002']); // bad request
       }
 
       // call it 
@@ -262,10 +269,10 @@ class Router {
       
       if ( $this->_using_special_route ) {
         if ($this->config['log'] === true) {
-          $this->logger->responseCode(Http::_NOT_IMPLEMENTED)->log();
+          $this->logger->responseCode(Http::_NOT_IMPLEMENTED,['error'=>'003'])->log();
         }
         die( $e->getMessage() );
-        return $this->response(Http::_NOT_IMPLEMENTED); // not implemented
+        return $this->response(Http::_NOT_IMPLEMENTED,['error'=>'004']); // not implemented
       }
 
       // before return an error, first, try to match any special route
@@ -293,9 +300,9 @@ class Router {
         $this->run();
       } else {
         if ($this->config['log'] === true) {
-          $this->logger->responseCode(Http::_NOT_IMPLEMENTED)->log();
+          $this->logger->responseCode(Http::_NOT_IMPLEMENTED,['error'=>'005'])->log();
         }
-        return $this->response(Http::_NOT_IMPLEMENTED); // not implemented
+        return $this->response(Http::_NOT_IMPLEMENTED,['error'=>'006']); // not implemented
       }
     }
   } // execute
