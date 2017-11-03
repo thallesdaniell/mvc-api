@@ -20,12 +20,12 @@ class Welcome extends Controller {
     parent::__construct();
   }
 
-  public function index_get ($id,$nome,$idade) {
+  public function index_get () {
        return $this->request->response(200, ['message' => "GET Id-{$id} Nome-{$nome} Idade-{$idade}"]);
   }
 
-  public function welcome_get ($id,$nome,$idade) {
-    return $this->request->response(200, ['message' => "GET Id-{$id} Nome-{$nome} Idade-{$idade}"]);
+  public function welcome_get () {
+    return $this->request->response(200, ['message' => "Controller Welcome Método Welcome"]);
   }
 
 
